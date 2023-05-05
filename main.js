@@ -16,14 +16,9 @@ let diviso = document.querySelector('#diviso')
 let uguale = document.querySelector('#uguale')
 let btnAC = document.querySelector('#btnAC')
 let display = document.querySelector('.display')
-let opa1
-let ops1
-let opm1
-let opd1
-let opa2
-let ops2
-let opm2
-let opd2
+let op1 = ""
+let op2 = ""
+let contrOp = ""
 
 
 
@@ -73,57 +68,49 @@ btnVirgola.addEventListener('click', () => {
 
 btnAC.addEventListener('click', () => {
     display.value = ""
-    let opa1 = 0
-    let ops1 = 0
-    let opm1 = 0
-    let opd1 = 0
-    let opa2 = 0
-    let ops2 = 0
-    let opm2 = 0
-    let opd2 = 0
+    op1 = ""
+    op2 = ""
+    contrOp = ""
 })
 
 piu.addEventListener('click', () => {
-    opa1 = parseFloat(display.value) 
-    display.value= ""
-
-    uguale.addEventListener('click', () => {
-        let opa2 = parseFloat(display.value)
-        display.value = String(((opa1) + opa2)) ;
-        opa1 = 0
-    })
-    
+    op1 = parseFloat(display.value)
+    display.value = ""
+    contrOp = "+"
 })
 
 meno.addEventListener('click', () => {
-    ops1 = parseFloat(display.value) 
-    display.value= ""
-
-    uguale.addEventListener('click', () => {
-        let ops2 = parseFloat(display.value)
-        display.value = String(((ops1) - ops2));
-        ops1 = 0
-    })
+    op1 = parseFloat(display.value)
+    display.value = ""
+    contrOp = "-"
 })
 
 per.addEventListener('click', () => {
-    opm1 = parseFloat(display.value) 
-    display.value= ""
-
-    uguale.addEventListener('click', () => {
-        let opm2 = parseFloat(display.value)
-        display.value = String(((opm1) * opm2));
-        opm1 = 0
-    })
+    op1 = parseFloat(display.value)
+    display.value = ""
+    contrOp = "x"
 })
 
 diviso.addEventListener('click', () => {
-    opd1 = parseFloat(display.value) 
-    display.value= ""
+    op1 = parseFloat(display.value)
+    display.value = ""
+    contrOp = ":"
+})
 
-    uguale.addEventListener('click', () => {
-        let opd2 = parseFloat(display.value)
-        display.value = String(((opd1) / opd2));
-        opd1 = 0
-    })
+
+uguale.addEventListener('click', () => {
+    op2 = parseFloat(display.value) 
+
+    if (contrOp == '+') {
+        display.value = op1 + op2
+    }else if (contrOp == '-') {
+        display.value = op1 - op2
+    }else if (contrOp == 'x') {
+        display.value = op1 * op2
+    }else if (contrOp == ':') {
+        display.value = op1 / op2
+    }
+
+    op1 = ""
+    op2 = ""
 })
