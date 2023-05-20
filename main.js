@@ -99,15 +99,20 @@ diviso.addEventListener('click', () => {
 
 
 uguale.addEventListener('click', () => {
-    op2 = parseFloat(display.value) 
-
-    if (contrOp == '+') {
-        display.value = op1 + op2
-    }else if (contrOp == '-') {
+    op2 = parseFloat(display.value)
+    
+    if(contrOp == "+"){
+        display.value=op1 + op2
+    }
+    if (contrOp == '-') {
         display.value = op1 - op2
-    }else if (contrOp == 'x') {
+    }
+
+    if (contrOp == 'x') {
         display.value = op1 * op2
-    }else if (contrOp == ':') {
+    }
+
+    if (contrOp == ':') {
         display.value = op1 / op2
     }
 
